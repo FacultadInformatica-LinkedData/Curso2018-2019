@@ -1,0 +1,14 @@
+@prefix xsd:<http://www.w3.org/2001/XMLSchema#>
+@prefix ex:<http://www.examples.org/ex>
+
+ex:Class01 ex:includes ex:Sensor029;
+           ex:includes ex:Computer101.
+
+ex:Sensor029 ex:hasMeasurement ex:Measurement8401.
+
+ex:Measurement8401 ex:hasTemperature xsd:integer:29;
+                   ex:atTime xsd:dateTime:"2010-06-12T12:00:12".
+                   
+ex:Computer101 ex:hasOwner ex:User10A.
+
+ex:User10A ex:hasName "Pedro".
