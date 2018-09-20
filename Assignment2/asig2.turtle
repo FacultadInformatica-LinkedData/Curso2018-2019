@@ -1,0 +1,18 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://www.oeg-upm.net/ontologies/classes#Measurement8401> <http://www.ontologies.org/ontologies/classes#attime> "" .
+
+<http://www.ontologies.org/ontologies/classes#attime> a rdf:Property .
+
+<http://www.ontologies.org/ontologies/classes#hasMeasurement> a rdf:Property .
+
+<http://www.ontologies.org/ontologies/classes#hasName> a rdf:Property .
+
+<http://www.ontologies.org/ontologies/classes#hasOwner> a rdf:Property .
+
+<http://www.ontologies.org/ontologies/classes#includes> a rdf:Property .
+
+<http://www.ontologies.org/ontologies/classes#hasTemperature> a rdf:Property .
+
+ [ a <http://www.ontologies.org/ontologies/classes#hasTemperature>] .
