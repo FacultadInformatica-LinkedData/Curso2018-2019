@@ -1,0 +1,13 @@
+@prefix vocab: https://example.com/example
+
+:Class01 vocab:includes;sensor029
+		vocab:includes;computer101.
+
+Sensor029: vocab:hasmeasurement;measurement8401
+
+Measurement:vocab:hasTemperature:29
+			vocab:atTime fecha:xsd:datatime;2010-06-12T12:00:12^^xsd:dateTime;
+
+Computer101: vocab :hasOwner;user101
+
+User: vocab:hasName : Pedro.
