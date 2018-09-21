@@ -1,0 +1,18 @@
+@base <assignment2.com/>
+@prefix medida: <assignment2.com/medida#>
+@prefix sensor: <assignment2.com/sensor#>
+@prefix clase: <assignment2.com/clase#>
+@prefix pc: <assignment2.com/pc#>
+@prefix usuario: <assignment2.com/usuario#>
+
+:Class01          clase:includes :Sensor029;
+                  clase:includes :Computer101.
+				  
+:Sensor029        sensor:hasMeasurement :Measurement8401.
+
+:Measurement8401  medida:hasTemperature "29";
+                  eventDate "2010-06-12T 12:00:12".
+				  
+:Computer101      pc:hasOwner :User10A.
+				  
+:User10A          usuario:hasName "Pedro".
