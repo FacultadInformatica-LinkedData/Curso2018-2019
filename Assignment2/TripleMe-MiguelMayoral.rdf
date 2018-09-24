@@ -26,8 +26,8 @@
 	</rdf:Description>
 
 	<rdf:Description rdf:about="#Measurement8401">
-		<measurement:hasTemperature>29<measurement:hasTemperature/>
-		<measurement:atTime>2010-06-12T12:00:12<measurement:atTime/>
+		<measurement:hasTemperature rdf:datatype="xsd:integer>29<measurement:hasTemperature/>
+		<measurement:atTime rdf:datatype="xsd:datetime">2010-06-12T12:00:12<measurement:atTime/>
 	</rdf:Description>
 
 	<rdf:Description rdf:about="#Computer101">
@@ -35,7 +35,7 @@
 	</rdf:Description>
 
 	<rdf:Description rdf:about="#User10A">
-		<computer:hasName>Pedro<computer:hasName/>
+		<computer:hasName rdf:datatype="xsd:string">Pedro<computer:hasName/>
 	</rdf:Description>
 
 </rdf:RDF>
