@@ -1,0 +1,13 @@
+@prefix :      <http://www.example.com/resource#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+:User10A  :hasName  "Pedro" .
+
+:Sensor029  :hasMeasurement  :Measurement8401 .
+
+:Class01  :includes  :Computer101 , :Sensor029 .
+
+:Measurement8401  :atTime  "2010-06-12T12:00:12"^^<http://www.w3.org/2001/XMLSchema#date> ;
+        :hasTemperature  29 .
+
+:Computer101  :hasowner  :User10A .
