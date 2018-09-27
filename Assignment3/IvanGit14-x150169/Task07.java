@@ -63,7 +63,7 @@ public class Task07
 
 		model.read(in, null);
 		
-		//Individuals
+		//Individual
 		
 		OntClass person2 = model2.getOntClass(ns+"Person");
 		ExtendedIterator instances2 = person2.listInstances();
