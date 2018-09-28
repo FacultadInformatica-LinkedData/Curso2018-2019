@@ -12,8 +12,8 @@
 
 :computer101 vocabPc:hasOwner :user10A.
 
-:measurement8401 vocabMess:hasTemperature :"29";
-				 vocabMess:atTime: "2010-06-12T 12:00:12".
+:measurement8401 vocabMess:hasTemperature :"29"^^xsd:integer;
+				 vocabMess:atTime: "2010-06-12T 12:00:12"^^xsd:dateTime.
 
 :user10A vocabOwner:hasName: "Pedro".
  
