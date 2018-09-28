@@ -1,5 +1,13 @@
+<<<<<<< HEAD
 Manifest-Version: 1.0
 Built-By: isantana
 Build-Jdk: 1.8.0_101
 Created-By: Maven Integration for Eclipse
 
+=======
+Manifest-Version: 1.0
+Built-By: isantana
+Build-Jdk: 1.8.0_101
+Created-By: Maven Integration for Eclipse
+
+>>>>>>> 96c777681fa728988ce9b03cbf4d4789600172f3
