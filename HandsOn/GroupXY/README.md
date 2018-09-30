@@ -2,7 +2,7 @@ Apellidos ; Nombre ; Usuario Github
 
 Hermoso de Mingo ; Antonio ; 
 
-Jimenez Delgado ; Jose Daniel ; 
+Jimenez Delgado ; Jose Daniel ; Sese92
 
 Santamaría Cirac ; Pablo ; pasanci
 
