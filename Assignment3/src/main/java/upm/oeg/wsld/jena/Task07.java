@@ -40,14 +40,35 @@ public class Task07
 		// ** TASK 7.1: List all individuals of "Person" **
 		OntClass person = model.getOntClass(ns+"Person");
 		ExtendedIterator instances = person.listInstances();
+		while(instances.hasNext()){
+			Individual instance = (Individual) instances.next();
+			System.out.println(instance.getURI());
+		}
 		
 		// ** TASK 7.2: List all subclasses of "Person" **
 		ExtendedIterator subclasses = person.listSubClasses();
-		
-		
+		while(subclasses.hasNext()){
+			OntClass subClass = (OntClass) subclasses.next();
+			System.out.println(subClass.getURI());
+		}
 		
 		// ** TASK 7.3: Make the necessary changes to get as well indirect instances and subclasses. TIP: you need some inference... **
-		
+		ExtendedIterator<OntClass> listSubclass = person.listSubClasses(); 
+        ExtendedIterator<Individual> listInstances; 
+ 
+        //Imprimiremos las subclases y las instancias de cada subclase 
+        while (listSubclass.hasNext()) { 
+            OntClass classes = (OntClass) listSubclass.next(); 
+            listInstances = (ExtendedIterator<Individual>) classes.listInstances(); 
+            System.out.println("Instances: " + classes.getURI()); 
+ 
+ 
+            while (listInstances.hasNext()) { 
+                System.out.println("Instances: " + listInstances.next().getURI()); 
+            } 
+ 
+ 
+        } 
 	
 	}
 }
