@@ -34,7 +34,7 @@ public class Task06
 		
 		// Use the FileManager to find the input file
 		InputStream in = FileManager.get().open(filename);
-	
+		//System.out.println(in);
 		if (in == null)
 			throw new IllegalArgumentException("File: "+filename+" not found");
 	
@@ -45,22 +45,27 @@ public class Task06
 		OntClass researcher = model.createClass(ns+"Researcher");
 		
 		// ** TASK 6.1: Create a new class named "University" **
-		
+		OntClass university = model.createClass(ns+"University");
 		
 		// ** TASK 6.2: Add "Researcher" as a subclass of "Person" **
-		
+		OntClass persona = model.createClass(ns+"Person");
+		persona.addSubClass(researcher);
 		
 		// ** TASK 6.3: Create a new property named "worksIn" **
-		
+		Property worksIn = model.createProperty(ns+"worsksIn");
 		
 		// ** TASK 6.4: Create a new individual of Researcher named "Jane Smith" **
-		
+		Individual janeSmith = researcher.createIndividual(ns + "Jane Smith"); 
 		
 		// ** TASK 6.5: Add to the individual JaneSmith the fullName, given and family names **
-		
+		janeSmith.addProperty(VCARD.FN, "Jane Smith");
+		janeSmith.addProperty(VCARD.Given, "Jane");
+		janeSmith.addProperty(VCARD.Family,"Smith");
 		
 		// ** TASK 6.6: Add UPM as the university where John Smith works **
-		
+		Individual upm = university.createIndividual(ns+"UPM");
+		Individual john = model.getIndividual(ns+"JohnSmith");
+		john.addProperty(worksIn, upm);
 		
 		model.write(System.out, "RDF/XML-ABBREV");
 	}
