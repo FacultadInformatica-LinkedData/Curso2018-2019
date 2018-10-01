@@ -6,6 +6,7 @@ import org.apache.jena.ontology.Individual;
 import org.apache.jena.ontology.OntClass;
 import org.apache.jena.ontology.OntModel;
 import org.apache.jena.ontology.OntModelSpec;
+import org.apache.jena.ontology.OntProperty;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.Property;
 import org.apache.jena.util.FileManager;
@@ -45,27 +46,26 @@ public class Task06
 		OntClass researcher = model.createClass(ns+"Researcher");
 		
 		// ** TASK 6.1: Create a new class named "University" **
-		OntClass university =model.createClass(ns+"University");
+		OntClass university = model.createClass(ns+"University");
 		
 		// ** TASK 6.2: Add "Researcher" as a subclass of "Person" **
-		OntClass person =model.getOntClass(ns+"Person");
-		person.addSubClass(researcher);
+		model.getOntClass(ns+"Person").addSubClass(researcher);
 		
 		// ** TASK 6.3: Create a new property named "worksIn" **
-		Property worksIn =model.createProperty(ns+"worksIn");
-		
+		OntProperty worksIn = model.createOntProperty(ns+"worksIn");
 		
 		// ** TASK 6.4: Create a new individual of Researcher named "Jane Smith" **
-		Individual janeSmith= model.createIndividual(ns+"janeSmith", researcher);
+		Individual jane_smith = researcher.createIndividual(ns+"Jane Smith");
 		
 		// ** TASK 6.5: Add to the individual JaneSmith the fullName, given and family names **
-		janeSmith.addLiteral(VCARD.FN, "Jane Smith");
+		jane_smith.addProperty(VCARD.FN, "JaneSmith");
+		jane_smith.addProperty(VCARD.Given, "Jane");
+		jane_smith.addProperty(VCARD.Family, "Smith");
 		
 		// ** TASK 6.6: Add UPM as the university where John Smith works **
-		Individual johnSmith =model.getIndividual(ns+"JohnSmith");
-		Individual UPM=model.createIndividual(ns+"UPM", university);
-		johnSmith.addProperty(worksIn, UPM);
-		
+		Individual upm = university.createIndividual(ns+"UPM");
+		Individual john_smith = model.getIndividual(ns+"JohnSmith");
+		john_smith.addProperty(worksIn, upm);
 		
 		model.write(System.out, "RDF/XML-ABBREV");
 	}
