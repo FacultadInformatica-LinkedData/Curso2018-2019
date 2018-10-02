@@ -2,42 +2,13 @@ package upm.oeg.wsld.jena;
 
 import java.io.InputStream;
 
-import org.apache.jena.datatypes.RDFDatatype;
-import org.apache.jena.graph.Node;
-import org.apache.jena.ontology.AllDifferent;
-import org.apache.jena.ontology.AnnotationProperty;
-import org.apache.jena.ontology.ComplementClass;
-import org.apache.jena.ontology.DataRange;
-import org.apache.jena.ontology.DatatypeProperty;
-import org.apache.jena.ontology.EnumeratedClass;
 import org.apache.jena.ontology.Individual;
-import org.apache.jena.ontology.IntersectionClass;
-import org.apache.jena.ontology.ObjectProperty;
 import org.apache.jena.ontology.OntClass;
 import org.apache.jena.ontology.OntModel;
 import org.apache.jena.ontology.OntModelSpec;
-import org.apache.jena.ontology.OntProperty;
-import org.apache.jena.ontology.OntResource;
-import org.apache.jena.ontology.Ontology;
-import org.apache.jena.ontology.Profile;
-import org.apache.jena.ontology.Restriction;
-import org.apache.jena.ontology.UnionClass;
-import org.apache.jena.rdf.model.AnonId;
-import org.apache.jena.rdf.model.Literal;
-import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
-import org.apache.jena.rdf.model.NodeIterator;
 import org.apache.jena.rdf.model.Property;
-import org.apache.jena.rdf.model.RDFList;
-import org.apache.jena.rdf.model.RDFNode;
-import org.apache.jena.rdf.model.RDFVisitor;
-import org.apache.jena.rdf.model.Resource;
-import org.apache.jena.rdf.model.Statement;
-import org.apache.jena.rdf.model.StmtIterator;
-import org.apache.jena.sparql.vocabulary.FOAF;
 import org.apache.jena.util.FileManager;
-import org.apache.jena.util.iterator.ExtendedIterator;
-import org.apache.jena.vocabulary.RDFS;
 import org.apache.jena.vocabulary.VCARD;
 
 /**
@@ -77,23 +48,24 @@ public class Task06
 		OntClass university = model.createClass(ns+"University");
 		
 		// ** TASK 6.2: Add "Researcher" as a subclass of "Person" **
-		model.getOntClass(ns+"Person").addSubClass(researcher);
+		OntClass person = model.createClass(ns+"Person");
+		person.addSubClass(researcher);
 		
 		// ** TASK 6.3: Create a new property named "worksIn" **
 		Property worksIn = model.createProperty(ns+"worksIn");
 		
-		// ** TASK 6.4: Create a new individual of Researcher named "Jane Smith" ** 
-		Individual janeSmith = researcher.createIndividual(ns+"JaneSmith");
+		// ** TASK 6.4: Create a new individual of Researcher named "Jane Smith" **
+		Individual janeSmith = researcher.createIndividual(ns+"Jane Smith");
 		
 		// ** TASK 6.5: Add to the individual JaneSmith the fullName, given and family names **
-		janeSmith.addLiteral(VCARD.FN, "Jane Smith");
-		janeSmith.addLiteral(VCARD.Given, "Jane");
-		janeSmith.addLiteral(VCARD.Family, "Smith");
+		janeSmith.addProperty(VCARD.FN,"Jane Smith");
+		janeSmith.addProperty(VCARD.Given,"Jane");
+		janeSmith.addProperty(VCARD.Family,"Smith");
 		
 		// ** TASK 6.6: Add UPM as the university where John Smith works **
-		Individual johnSmith = model.getIndividual(ns+"JohnSmith");
-		Individual uni_upm = university.createIndividual(ns+"UPM");
-		johnSmith.addProperty(worksIn, uni_upm);
+		Individual upm = university.createIndividual(ns+"UPM");
+		Individual johnSmith = researcher.createIndividual(ns+"John Smith");
+		johnSmith.addProperty(worksIn, upm);
 		
 		model.write(System.out, "RDF/XML-ABBREV");
 	}

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @prefix ex: <http://example.com/resource/#> .
 
 ex:Class01
@@ -16,3 +17,23 @@ ex:Measurement8401
 	ex:atTime "2010-06-12T12:00:12"^^xsd:dateTime.
 ex:User10A
 	ex:hasName "Pedro"^^xsd:string. 
+=======
+@prefix ex: <http://example.com/resource/#> .
+
+ex:Class01
+	ex:includes 
+        ex:Sensor029,
+        ex:Computer101 .
+
+ex:Sensor029
+	ex:hasMeasurement  
+        ex:Measurement8401.
+ex:Computer101
+	ex:hasOwner  
+        ex:User10A.
+ex:Measurement8401
+	ex:hasTemperature "29"^^xsd:decimal;
+	ex:atTime "2010-06-12T12:00:12"^^xsd:dateTime.
+ex:User10A
+	ex:hasName "Pedro"^^xsd:string. 
+>>>>>>> 96c777681fa728988ce9b03cbf4d4789600172f3
