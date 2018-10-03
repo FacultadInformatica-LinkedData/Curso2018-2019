@@ -3,6 +3,7 @@ package upm.oeg.wsld.jena;
 import java.io.InputStream;
 
 import org.apache.jena.ontology.Individual;
+import org.apache.jena.ontology.ObjectProperty;
 import org.apache.jena.ontology.OntClass;
 import org.apache.jena.ontology.OntModel;
 import org.apache.jena.ontology.OntModelSpec;
@@ -45,22 +46,27 @@ public class Task06
 		OntClass researcher = model.createClass(ns+"Researcher");
 		
 		// ** TASK 6.1: Create a new class named "University" **
-		
+		OntClass university = model.createClass(ns + "University");
 		
 		// ** TASK 6.2: Add "Researcher" as a subclass of "Person" **
-		
+		OntClass person = model.getOntClass(ns +"Person");
+		person.addSubClass(researcher);
 		
 		// ** TASK 6.3: Create a new property named "worksIn" **
-		
+		Property worksIn = model.createObjectProperty(ns + "worksIn");
 		
 		// ** TASK 6.4: Create a new individual of Researcher named "Jane Smith" **
-		
+		Individual jane = researcher.createIndividual(ns + "Jane Smith");
 		
 		// ** TASK 6.5: Add to the individual JaneSmith the fullName, given and family names **
-		
+		jane.addLiteral(VCARD.FN, "Jane Smith");
+		jane.addLiteral(VCARD.Given, "Jane");
+		jane.addLiteral(VCARD.Family, "Smith");
 		
 		// ** TASK 6.6: Add UPM as the university where John Smith works **
-		
+		Individual upm = university.createIndividual(ns+"UPM");
+		Individual johnS = model.getIndividual(ns+"Johnn Smith");
+		johnS.addProperty(worksIn, upm);
 		
 		model.write(System.out, "RDF/XML-ABBREV");
 	}
