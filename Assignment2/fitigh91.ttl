@@ -1,0 +1,18 @@
+@base  <http://www.ontologies.org/ontologies/class01/>
+@prefix vocabClass: <http://www.ontologies.org/ontologies/people#>
+@prefix vocabSensor: <http://www.ontologies.org/ontologies/class01/sensor029#">
+@prefix vocabMess: <http://www.ontologies.org/ontologies/class01/sensor029/measurement8401#>
+@prefix vocabPc: <http://www.ontologies.org/ontologies/class01/computer101#>
+@prefix vocabOwner: <http://www.ontologies.org/ontologies/class01/sensor029/user10A#>
+ 
+:class01 vocabClass:includes :sensor029;
+		 vocabClass:includes :computer101.
+		 
+:sensor029 vocabSensor:hasMeasurement :measurement8401.
+
+:computer101 vocabPc:hasOwner :user10A.
+
+:measurement8401 vocabMess:hasTemperature :"29^^xsd:integer";
+				 vocabMess:atTime: "2010-06-12T 12:00:12^^xsd:dateTime".
+
+:user10A vocabOwner:hasName: "Pedro".
