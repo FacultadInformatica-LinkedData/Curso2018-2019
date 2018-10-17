@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<rdf:RDF 
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<rdf:Property rdf:about="http://www.ontologies.org/ontologies/ejercicio2#includes"/>
+<rdf:Property rdf:about="http://www.ontologies.org/ontologies/ejercicio2#hasMeasurement"/>
+<rdf:Property rdf:about="http://www.ontologies.org/ontologies/ejercicio2#hasTemperature"/>
+<rdf:Property rdf:about="http://www.ontologies.org/ontologies/ejercicio2#atTime"/>
+<rdf:Property rdf:about="http://www.ontologies.org/ontologies/ejercicio2#hasOwner"/>
+<rdf:Property rdf:about="http://www.ontologies.org/ontologies/ejercicio2#hasName"/>
+
+<rdf:Description rdf:about="#Pedro"/>
+<rdf:Description rdf:about="#User10A">
+	<ejercicio2:hasName rdf:resource="#Pedro"/>
+</rdf:Description>
+<rdf:Description rdf:about="Measurement8401">
+	<eventDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2010-06-12T12:00:12</eventDate>
+	<ejercicio2:hasTemperature rdf:int="29"/>
+</rdf:Description>
+<rdf:Description rdf:about="#Sensor029">
+	<ejercicio2:hasMeasurement rdf:resource="#Measurement8401"/>
+</rdf:Description>
+<rdf:Description rdf:about="Computer101">
+	<ejercicio2:hasOwner rdf:resource="#User10A"/>
+</rdf:Description>
+<rdf:Description rdf:about="#Class01">
+	<ejercicio2:includes rdf:resource="#Sensor029"/>
+	<ejercicio2:includes rdf:resource="#Computer101"/>
+</rdf:Description>
+
+</?xml>
