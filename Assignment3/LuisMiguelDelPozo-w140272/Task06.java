@@ -64,9 +64,16 @@ public class Task06
 		janeSmith.addProperty(VCARD.Family, "Smith");
 		
 		// ** TASK 6.6: Add UPM as the university where John Smith works **
+<<<<<<< HEAD:Assignment3/LuisMiguelDelPozo-w140272/Task06.java
 		Individual upm = university.createIndividual(ns+"UPM");
 		Individual john = model.getIndividual(ns+"Jonh Smith");
 		john.addProperty(worksIn, upm);
+=======
+		Individual johnSmith =model.getIndividual(ns+"JohnSmith");
+		Individual UPM=model.createIndividual(ns+"UPM", university);
+		johnSmith.addProperty(worksIn, UPM);
+		
+>>>>>>> upstream/master:Assignment3/EnriqueCaño/src/main/java/upm/oeg/wsld/jena/Task06.java
 		
 		model.write(System.out, "RDF/XML-ABBREV");
 	}
