@@ -39,15 +39,42 @@ public class Task07
 		
 		// ** TASK 7.1: List all individuals of "Person" **
 		OntClass person = model.getOntClass(ns+"Person");
-		ExtendedIterator instances = person.listInstances();
+		ExtendedIterator it = person.listInstances();
+		
+		Individual instances = null;
+		while(it.hasNext()){
+			instances = (Individual) it.next();
+			System.out.println(instances.getURI());
+		}
 		
 		// ** TASK 7.2: List all subclasses of "Person" **
-		ExtendedIterator subclasses = person.listSubClasses();
+		it = person.listSubClasses();
+		OntClass subClases = null;
 		
+		while(it.hasNext()) 
+		{
+			subClases = (OntClass) it.next();
+			System.out.println(subClases.getLocalName() + " URI: " + subClases.getURI());		
+		}
 		
 		
 		// ** TASK 7.3: Make the necessary changes to get as well indirect instances and subclasses. TIP: you need some inference... **
+		OntModel model2 = ModelFactory.createOntologyModel(OntModelSpec.RDFS_MEM_RDFS_INF, model);
 		
-	
+		OntClass class2 = model2.getOntClass(ns + "Person");
+		ExtendedIterator it2 = class2.listInstances();
+		
+		while(it2.hasNext()) 
+		{
+			instances = (Individual) it2.next();
+			System.out.println(instances.getURI());		
+		}
+		
+		it2 = class2.listSubClasses();
+		while(it2.hasNext()) 
+		{
+			subClases = (OntClass) it2.next();
+			System.out.println(subClases.getURI());		
+		}
+		}
 	}
-}
