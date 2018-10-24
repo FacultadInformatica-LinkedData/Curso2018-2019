@@ -13,7 +13,7 @@ import org.apache.jena.util.iterator.ExtendedIterator;
 
 /**
  * Task 07: Querying ontologies (RDFs)
- * @author elozano
+ * @author elozanoo
  * @author isantana
  *
  */

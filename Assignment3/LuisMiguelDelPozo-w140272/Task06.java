@@ -1,4 +1,4 @@
-package upm.oeg.wsld.jena;
+﻿package upm.oeg.wsld.jena;
 
 import java.io.InputStream;
 
@@ -14,7 +14,7 @@ import org.apache.jena.vocabulary.VCARD;
 
 /**
  * Task 06: Modifying ontologies (RDFs)
- * @author elozano
+ * @author elozanoo
  * @author isantana
  *
  */
